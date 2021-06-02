@@ -20,10 +20,12 @@ const Item = (props) => {
         let total = 0;
         let discount = 0;
         let typeDis = 0;
+        let items = 0;
         props.cart.forEach(product => {
             let currPrice = (product.price*product.quantity);
             total += currPrice;
             discount += (product.discount*product.quantity);
+            items += product.quantity;
 
             if(product.type === 'fiction') {
                 let x = (0.15*product.price);
@@ -33,6 +35,7 @@ const Item = (props) => {
         props.setTotalPriceState(total);
         props.setDiscount(discount);
         props.setTypeDiscount(typeDis);
+        props.setTotalItems(items);
         localStorage.setItem('cart', JSON.stringify(props.cart));
     }, [props.cart, props.totalPrice]);
 

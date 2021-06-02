@@ -7,6 +7,7 @@ const Orders = () => {
     const [totalPrice, setTotalPrice] = useState(0);
     const [discount, setDiscount] = useState(0);
     const [typeDiscount, setTypeDiscount] = useState(0);
+    const [totalItems, setTotalItems] = useState(0);
 
     const setCartState = (cart) => {
         setCart(cart);
@@ -48,7 +49,8 @@ const Orders = () => {
 
                 <Item cart={cart} setCartState={setCartState} totalPrice={totalPrice}
                     setTotalPriceState={setTotalPriceState} setDiscount={setDiscount} discount={discount} 
-                    typeDiscount={typeDiscount} setTypeDiscount={setTypeDiscount} />
+                    typeDiscount={typeDiscount} setTypeDiscount={setTypeDiscount}
+                    setTotalItems={setTotalItems} />
             </div>
             
                 <div className="final-cart">
@@ -58,7 +60,7 @@ const Orders = () => {
                         </div>
                         <div className="item-total-qty">
                             <div className="item-total-title title-align">
-                                Item({cart.length})
+                                Items({totalItems})
                             </div>
                             <div className="cart-final colon">
                                 :
