@@ -4,11 +4,16 @@ import { products } from '../../data/products';
 import './Item.css';
 const Item = (props) => {
     useEffect(() => {
-        let newcart = products.map(pro => {
-            pro.quantity = 1;
-            return pro;
-        })
-        props.setCartState(newcart);
+        if(!localStorage.getItem('cart')) {
+            let newcart = products.map(pro => {
+                pro.quantity = 1;
+                return pro;
+            })
+            props.setCartState(newcart);
+        } else {
+            let productsLocal = JSON.parse(localStorage.getItem('cart'));
+            props.setCartState(productsLocal);
+        }
     }, []);
 
     useEffect(() => {
@@ -28,7 +33,7 @@ const Item = (props) => {
         props.setTotalPriceState(total);
         props.setDiscount(discount);
         props.setTypeDiscount(typeDis);
-        console.log(props.discount)  
+        localStorage.setItem('cart', JSON.stringify(props.cart));
     }, [props.cart, props.totalPrice]);
 
     const handleDelete = (product) => {

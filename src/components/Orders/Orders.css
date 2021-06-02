@@ -3,7 +3,7 @@
 }
 
 .orders-container {
-    width: 500px;
+    min-width: 500px;
     display: flex;
     flex-direction: column-reverse;
 }
@@ -20,6 +20,7 @@
 
 .items-bar {
     display: flex;
+    min-width: 500px;
 }
 
 .item-bar-a {
@@ -103,6 +104,13 @@
 .pre-total {
     border: 1px solid rgb(216, 216, 216);
     width: 300px;
+}
+
+button {
+    margin-top: 30px;
+    height: 40px;
+    width: 500px;
+    font-weight: 700;
 }
 
 @media screen and (min-width: 1024px){

@@ -15,6 +15,12 @@ const Orders = () => {
     const setTotalPriceState = (total) => {
         setTotalPrice(total);
     }
+
+    const handleCartReload = () => {
+        localStorage.removeItem('cart');
+        window.location.reload();
+    }
+
     return (
         <div className="container">
             <div className="title-bar">
@@ -96,7 +102,7 @@ const Orders = () => {
                     </div>
                 </div>
             </div>
-        
+            <button onClick={handleCartReload}>Reload Cart</button>
         </div>
     )
 }
